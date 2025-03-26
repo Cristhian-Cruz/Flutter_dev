@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Dev',
       routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
         textTheme: TextTheme(
           headlineSmall: TextStyle(fontSize: 12),
           headlineMedium: TextStyle(fontSize: 24),
