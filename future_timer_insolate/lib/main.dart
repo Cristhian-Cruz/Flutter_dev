@@ -15,7 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Dev',
       routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        textTheme: TextTheme(
+          headlineSmall: TextStyle(fontSize: 12),
+          headlineMedium: TextStyle(fontSize: 24),
+        ),
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
