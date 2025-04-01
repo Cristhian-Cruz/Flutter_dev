@@ -10,9 +10,11 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Método que construye la interfaz de usuario
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pantalla de Detalles'),
+        title: const Text('Pantalla de Detalles'), // Título de la AppBar
+        backgroundColor: Colors.blue, // Color de fondo de la AppBar
       ), // Título de la AppBar
       body: Center(
         child: Text(

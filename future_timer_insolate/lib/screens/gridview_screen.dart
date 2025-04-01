@@ -7,8 +7,10 @@ class GridViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('GridView')),
-      body: CustomGridView(),
+      appBar: AppBar(title: const Text('GridView')), // Título de la AppBar
+      backgroundColor: Colors.blue, // Color de fondo de la AppBar
+      body:
+          CustomGridView(), // Llama al widget CustomGridView que contiene la cuadrícula
     );
   }
 }

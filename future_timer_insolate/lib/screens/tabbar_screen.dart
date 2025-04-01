@@ -5,8 +5,10 @@ class TabBarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Método que construye la interfaz de usuario
     return Scaffold(
-      appBar: AppBar(title: const Text('TabBar Screen')),
+      appBar: AppBar(title: const Text('TabBar Screen')), // Título de la AppBar
+      backgroundColor: Colors.blue, // Color de fondo de la AppBar
       body: const Center(child: Text('¡Bienvenido al TabBar!')),
     );
   }

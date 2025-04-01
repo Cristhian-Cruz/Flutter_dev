@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomGridView extends StatelessWidget {
+  // Clase que representa una cuadrícula personalizada
   CustomGridView({super.key});
 
+  /// Constructor de la clase CustomGridView
   final List<String> items = [
     'Item 1',
     'Item 2',
@@ -15,14 +17,16 @@ class CustomGridView extends StatelessWidget {
     'Item 9',
     'Item 10',
   ];
-
+  // Lista de elementos que se mostrarán en la cuadrícula
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
+        // Configuración de la cuadrícula
+        crossAxisCount: 2, // Número de columnas
+        crossAxisSpacing: 2, // Espacio entre columnas
+        mainAxisSpacing: 2, // Espacio entre filas
+        //
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {
@@ -32,6 +36,7 @@ class CustomGridView extends StatelessWidget {
             child: Text(
               items[index], // Ahora usa la lista correctamente
               style: Theme.of(context).textTheme.headlineSmall,
+              // Estilo del texto
             ),
           ),
         );
