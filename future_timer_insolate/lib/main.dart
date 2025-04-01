@@ -41,24 +41,73 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text(
+                'Menú de Navegación',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Inicio'),
+              onTap: () {
+                GoRouter.of(context).go('/');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.grid_view),
+              title: const Text('GridView'),
+              onTap: () {
+                GoRouter.of(context).go('/gridview');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.tab),
+              title: const Text('TabBar'),
+              onTap: () {
+                GoRouter.of(context).go('/tabbar');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Detalle con mensaje'),
+              onTap: () {
+                String mensaje = "Hola desde el Drawer";
+                GoRouter.of(context).go('/detail/$mensaje');
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Primer botón: Navegar a la pantalla TabBar
             ElevatedButton(
               onPressed: () {
-                GoRouter.of(context).go('/tabbar'); // Navega a TabBarScreen
+                GoRouter.of(context).go('/tabbar');
               },
               child: const Text('Ir a TabBar'),
             ),
-            const SizedBox(height: 20), // Espacio entre los botones
-            // Segundo botón: Navegar a la pantalla con el GridView
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                GoRouter.of(context).go('/gridview'); // Navega a GridViewScreen
+                GoRouter.of(context).go('/gridview');
               },
               child: const Text('Ir a GridView'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                String mensaje = "Hola desde MyHomePage";
+                GoRouter.of(context).go('/detail/$mensaje');
+              },
+              child: const Text('Ir a Detalle con mensaje'),
             ),
           ],
         ),
