@@ -12,4 +12,4 @@ Este proyecto es una aplicación en Flutter que implementa navegación con `go_r
 ## Instalación  
 1. Clona este repositorio:  
    ```sh
-   git clone <https://github.com/Cristhian-Cruz/Flutter_dev/tree/dev>
+   git clone https://github.com/Cristhian-Cruz/Flutter_dev/tree/dev
