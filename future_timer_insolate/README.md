@@ -1,16 +1,15 @@
-# future_timer_insolate
+# Flutter Navigation & Widgets  
 
-A new Flutter project.
+Este proyecto es una aplicación en Flutter que implementa navegación con `go_router`, muestra una `GridView`, utiliza `TabBar` para organizar secciones y cuenta con un `Drawer` para facilitar la navegación.  
 
-## Getting Started
+## Características  
+- **Navegación con go_router**: Se implementó la navegación entre pantallas y el paso de parámetros.  
+- **GridView**: Se muestra una lista de elementos organizados en cuadrícula.  
+- **TabBar**: Se utilizaron pestañas para cambiar entre diferentes secciones.  
+- **Drawer**: Menú lateral disponible en las pantallas principales.  
+- **Evidencia del ciclo de vida**: Se añadieron `print()` en los métodos clave del ciclo de vida de `StatefulWidget` (`initState()`, `didChangeDependencies()`, `build()`, `setState()`, `dispose()`).  
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instalación  
+1. Clona este repositorio:  
+   ```sh
+   git clone <https://github.com/Cristhian-Cruz/Flutter_dev/tree/dev>
