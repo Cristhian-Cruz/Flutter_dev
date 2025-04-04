@@ -3,6 +3,9 @@ import 'package:widgets/main.dart';
 import 'package:widgets/screens/tabbar_screen.dart';
 import 'screens/gridview_screen.dart';
 import 'screens/detail_screen.dart';
+import 'screens/list_view_screen.dart';
+import 'screens/counter_screen.dart';
+import 'screens/tarea_pesada_screen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/',
@@ -10,7 +13,7 @@ final GoRouter router = GoRouter(
     // Ruta de la página principal
     GoRoute(
       path: '/',
-      builder: (context, state) => const MyHomePage(title: 'Inicio'),
+      builder: (context, state) => MyHomePage(title: 'Inicio'),
     ),
     // Ruta para la pantalla TabBar
     GoRoute(path: '/tabbar', builder: (context, state) => const TabBarScreen()),
@@ -33,6 +36,21 @@ final GoRouter router = GoRouter(
           message: message,
         ); // Pantalla de detalles que recibe el mensaje
       },
+    ),
+    // Ruta para la lista de estudiantes
+    GoRoute(
+      path: '/listview',
+      builder:
+          (context, state) =>
+              const ListViewScreen(), // Pantalla donde se muestra la lista de estudiantes
+    ),
+    GoRoute(
+      path: '/contador',
+      builder: (context, state) => const CounterScreen(),
+    ),
+    GoRoute(
+      path: '/tarea_pesada',
+      builder: (context, state) => const TareaPesadaScreen(),
     ),
   ],
 );

@@ -3,172 +3,136 @@ import 'package:go_router/go_router.dart';
 import 'router.dart';
 
 void main() {
-  // Función principal que inicia la aplicación
-  runApp(const MyApp()); // Llama a la clase MyApp
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // Clase principal de la aplicación
-  // Constructor de la clase MyApp
   const MyApp({super.key});
 
-  // This widget is the root of your application.
-  @override // Método que construye el widget
+  @override
   Widget build(BuildContext context) {
-    // Método build que devuelve el widget
-    // Devolvemos el MaterialApp.router con la configuración del router
     return MaterialApp.router(
-      title: 'Flutter Dev', // Título de la aplicación
-      routerConfig: router, // Aquí asignamos el router a la aplicación
+      title: 'Flutter Dev',
+      routerConfig: router,
       theme: ThemeData(
-        // Tema de la aplicación
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.yellow,
-        ), // ColorScheme que define los colores de la aplicación
-        textTheme: TextTheme(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
+        textTheme: const TextTheme(
           headlineSmall: TextStyle(fontSize: 12),
           headlineMedium: TextStyle(fontSize: 24),
         ),
       ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-/// Esta clase representa la pantalla principal de la aplicación
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    super.key,
-    required this.title,
-  }); // Constructor de la clase MyHomePage
-  final String title;
+  const MyHomePage({super.key, required this.title});
+  final String title; // Widget hijo que se pasará al constructor
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(); // Método que crea el estado de la clase MyHomePage
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // Este método se llama una sola vez cuando el widget es creado.
-  @override
-  void initState() {
-    super.initState();
-    // Imprimimos en consola para evidenciar que se ha ejecutado initState
-    print("initState() ejecutado");
+  int _selectedIndex = 0; // Índice actual de la pestaña
+
+  final List<String> _routes = [
+    '/',
+    '/gridview',
+    '/tabbar',
+    '/detail/Hola%20desde%20TabBar',
+    '/listview',
+    '/contador',
+    '/tarea_pesada',
+  ];
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    GoRouter.of(context).go(_routes[index]);
   }
 
-  // Este método se llama cuando las dependencias del widget cambian.
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Imprimimos en consola para evidenciar que se ha ejecutado didChangeDependencies
-    print("didChangeDependencies() ejecutado");
-  }
-
-  // Este método es responsable de construir la interfaz de usuario.
   @override
   Widget build(BuildContext context) {
-    // Imprimimos en consola cada vez que el widget necesita ser reconstruido.
-    print("build() ejecutado");
-
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text(
-                'Menú de Navegación',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
+    return WillPopScope(
+      onWillPop: () async {
+        if (_selectedIndex > 0) {
+          setState(() {
+            _selectedIndex = 0;
+          });
+          GoRouter.of(context).go('/');
+          return false; // Evita que la app se cierre
+        }
+        return true; // Permite salir si está en la página de inicio
+      },
+      child: DefaultTabController(
+        length: 6,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+            leading:
+                _selectedIndex > 0
+                    ? IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        setState(() {
+                          _selectedIndex = 0;
+                        });
+                        GoRouter.of(context).go('/');
+                      },
+                    )
+                    : null,
+            bottom: TabBar(
+              isScrollable: true,
+              onTap: _onTabTapped,
+              tabs: const [
+                Tab(icon: Icon(Icons.home), text: 'Inicio'),
+                Tab(icon: Icon(Icons.grid_view), text: 'GridView'),
+                Tab(icon: Icon(Icons.info), text: 'Detalle'),
+                Tab(icon: Icon(Icons.list), text: 'Lista'),
+                Tab(icon: Icon(Icons.timer), text: 'Contador'),
+                Tab(icon: Icon(Icons.work), text: 'Tarea Pesada'),
+              ],
             ),
-            // Elementos del Drawer para navegar entre las diferentes pantallas.
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Inicio'),
-              onTap: () {
-                GoRouter.of(context).go('/');
-              },
+          ),
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                const DrawerHeader(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  child: Text(
+                    'Menú de Navegación',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                _crearItemDrawer(Icons.home, 'Inicio', 0),
+                _crearItemDrawer(Icons.grid_view, 'GridView', 1),
+                _crearItemDrawer(Icons.info, 'Detalle con mensaje', 2),
+                _crearItemDrawer(Icons.list, 'Lista de nombres', 3),
+                _crearItemDrawer(Icons.timer, 'Contador', 4),
+                _crearItemDrawer(Icons.work, 'Tarea Pesada', 5),
+              ],
             ),
-            ListTile(
-              leading: const Icon(Icons.grid_view),
-              title: const Text('GridView'),
-              onTap: () {
-                GoRouter.of(context).go('/gridview');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.tab),
-              title: const Text('TabBar'),
-              onTap: () {
-                GoRouter.of(context).go('/tabbar');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('Detalle con mensaje'),
-              onTap: () {
-                String mensaje = "Hola desde el Drawer";
-                GoRouter.of(context).go('/detail/$mensaje');
-              },
-            ),
-          ],
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Botón para navegar hacia la pantalla TabBar.
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).go('/tabbar');
-                // Imprimimos que se ha presionado el botón
-                print("Botón 'Ir a TabBar' presionado");
-              },
-              child: const Text('Ir a TabBar'),
-            ),
-            const SizedBox(height: 20),
-            // Botón para navegar hacia la pantalla GridView.
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).go('/gridview');
-                // Imprimimos que se ha presionado el botón
-                print("Botón 'Ir a GridView' presionado");
-              },
-              child: const Text('Ir a GridView'),
-            ),
-            const SizedBox(height: 20),
-            // Botón para navegar hacia la pantalla de Detalles con mensaje.
-            ElevatedButton(
-              onPressed: () {
-                String mensaje = "Hola desde MyHomePage";
-                GoRouter.of(context).go('/detail/$mensaje');
-                // Imprimimos que se ha presionado el botón
-                print("Botón 'Ir a Detalle con mensaje' presionado");
-              },
-              child: const Text('Ir a Detalle con mensaje'),
-            ),
-          ],
+          ),
+          body: Center(child: Text('Bienvenido a Flutter')),
         ),
       ),
     );
   }
 
-  // Este método se llama cada vez que el estado del widget cambia.
-  @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
-    // Imprimimos en consola para evidenciar que se ha ejecutado setState
-    print("setState() ejecutado");
-  }
-
-  // Este método se llama cuando el widget se destruye o se elimina.
-  @override
-  void dispose() {
-    // Imprimimos en consola para evidenciar que se ha ejecutado dispose
-    print("dispose() ejecutado");
-    super.dispose();
+  Widget _crearItemDrawer(IconData icon, String title, int index) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      onTap: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+        GoRouter.of(context).go(_routes[index]);
+        Navigator.pop(context);
+      },
+    );
   }
 }
