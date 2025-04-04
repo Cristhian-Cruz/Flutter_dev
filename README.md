@@ -1,6 +1,6 @@
 # Flutter Navigation & Widgets
 
-Este proyecto es una aplicación en Flutter que implementa navegación con `go_router`, muestra una `GridView`, utiliza `TabBar` para organizar secciones y cuenta con un `Drawer` para facilitar la navegación.
+Este proyecto es una aplicación en Flutter que incluye navegación, manejo de estado y optimización de rendimiento con `Future`, `Timer`, `Isolate` y mejoras en la interfaz con `Scaffold`, `Drawer` y `TabBar`.
 
 ## Características
 - **Navegación con go_router**: Se implementó la navegación entre pantallas y el paso de parámetros.
