@@ -8,6 +8,12 @@ Este proyecto es una aplicación en Flutter que implementa navegación con `go_r
 - **TabBar**: Se utilizaron pestañas para cambiar entre diferentes secciones.
 - **Drawer**: Menú lateral disponible en las pantallas principales.
 - **Evidencia del ciclo de vida**: Se añadieron `print()` en los métodos clave del ciclo de vida de `StatefulWidget` (`initState()`, `didChangeDependencies()`, `build()`, `setState()`, `dispose()`).
+- **Lista de Estudiantes**:  
+  - Se cargan datos asíncronos con `Future.delayed()`.  
+  - Mientras se obtienen, se muestra un `CircularProgressIndicator`.
+- **Tarea Pesada con Isolate**:  
+  - Se ejecuta en segundo plano sin bloquear la interfaz.  
+  - Muestra el resultado en un `SnackBar`.  
 
 ## Requisitos
 Antes de clonar y ejecutar el proyecto, asegúrete de tener instalado lo siguiente:
@@ -46,21 +52,6 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina:
 - El `Drawer` permite moverse entre las diferentes secciones.
 - Los mensajes en consola muestran el ciclo de vida de los widgets en `StatefulWidget`.
 
-## Estructura del Proyecto
-```
-/lib
-│── main.dart           # Punto de entrada de la aplicación
-│── router.dart         # Configuración de rutas con go_router
-│── screens/
-│   ├── home_page.dart  # Pantalla principal con Drawer y botones de navegación
-│   ├── grid_view.dart  # Pantalla con una lista de elementos en cuadrícula
-│   ├── tab_bar.dart    # Pantalla con TabBar para cambiar entre secciones
-│   ├── detail_page.dart# Pantalla que recibe y muestra un mensaje como parámetro
-│── widgets/
-│   └── custom_drawer.dart # Widget reutilizable para el Drawer
-│── models/
-│   └── item_model.dart # Modelo de datos para los elementos del GridView
-```
 
 ## Posibles Errores y Soluciones
 
@@ -72,6 +63,9 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina:
 
 3. **Error:** "Missing 'flutterfire' configuration"
    - **Solución:** Si decides agregar Firebase, usa `flutterfire configure` antes de ejecutar la app.
+     
+4. Error: "Botón de retroceso cierra la aplicación"
+   - **Solución:** Se implementó `WillPopScope` para controlar el comportamiento del botón de retroceso.
 
 ## Autor
 Cristhian Cruz
