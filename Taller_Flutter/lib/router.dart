@@ -1,11 +1,12 @@
 import 'package:go_router/go_router.dart';
 import 'package:widgets/main.dart';
-import 'package:widgets/screens/tabbar_screen.dart';
+//import 'package:widgets/screens/tabbar_screen.dart';
 import 'screens/gridview_screen.dart';
 import 'screens/detail_screen.dart';
 import 'screens/list_view_screen.dart';
 import 'screens/counter_screen.dart';
 import 'screens/tarea_pesada_screen.dart';
+import 'screens/listado_screen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/',
@@ -16,7 +17,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => MyHomePage(title: 'Inicio'),
     ),
     // Ruta para la pantalla TabBar
-    GoRoute(path: '/tabbar', builder: (context, state) => const TabBarScreen()),
+    //GoRoute(path: '/tabbar', builder: (context, state) => const TabBarScreen()),
     // Ruta para el GridView
     GoRoute(
       path: '/gridview',
@@ -51,6 +52,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/tarea_pesada',
       builder: (context, state) => const TareaPesadaScreen(),
+    ),
+    GoRoute(
+      path: '/listado',
+      builder: (context, state) => const ListadoScreen(),
     ),
   ],
 );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'package:widgets/widget/globlal_drawer_view.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Pantalla de Detalles'), // Título de la AppBar
         backgroundColor: Colors.blue,
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -25,7 +25,8 @@ class DetailScreen extends StatelessWidget {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null, // Color de fondo de la AppBar
+                : null, */
+        // Color de fondo de la AppBar
       ),
       drawer: const GlobalDrawer(), // Título de la AppBar
       body: Center(

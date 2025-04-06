@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'package:widgets/widget/globlal_drawer_view.dart';
 
 class TabBarScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class TabBarScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TabBar Screen'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -19,7 +19,7 @@ class TabBarScreen extends StatelessWidget {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ), // Título de la AppBar
       drawer: const GlobalDrawer(),
       backgroundColor: Colors.blue, // Color de fondo de la AppBar

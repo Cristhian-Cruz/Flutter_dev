@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'dart:async';
 
 import 'package:widgets/widget/globlal_drawer_view.dart';
@@ -24,7 +24,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Estudiantes'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -32,7 +32,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ),
       drawer: const GlobalDrawer(),
       body: FutureBuilder<List<String>>(

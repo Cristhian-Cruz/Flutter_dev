@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'package:widgets/widget/globlal_drawer_view.dart';
 import '../widget/grid_view.dart';
 
@@ -11,7 +11,7 @@ class GridViewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('GridView'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -19,7 +19,7 @@ class GridViewScreen extends StatelessWidget {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ),
       drawer: const GlobalDrawer(), // Título de la AppBar
       backgroundColor: Colors.blue, // Color de fondo de la AppBar

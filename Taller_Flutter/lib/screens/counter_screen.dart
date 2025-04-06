@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'dart:async';
 import 'package:widgets/widget/globlal_drawer_view.dart';
 
@@ -49,7 +49,7 @@ class _ContadorScreenState extends State<CounterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contador Automático'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -57,7 +57,7 @@ class _ContadorScreenState extends State<CounterScreen> {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ),
       drawer: const GlobalDrawer(),
       body: Center(

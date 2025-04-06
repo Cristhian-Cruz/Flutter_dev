@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'dart:async';
 
 import 'package:widgets/widget/globlal_drawer_view.dart';
@@ -25,7 +25,7 @@ class ListViewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Nombres'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -33,7 +33,7 @@ class ListViewScreen extends StatelessWidget {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ),
       drawer: const GlobalDrawer(), // Título de la barra de la aplicación
 

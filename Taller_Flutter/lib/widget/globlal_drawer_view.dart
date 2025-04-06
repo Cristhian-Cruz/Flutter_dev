@@ -29,12 +29,12 @@ class GlobalDrawer extends StatelessWidget {
             'GridView',
             () => GoRouter.of(context).push('/gridview'),
           ),
-          _crearItemDrawer(
+          /*_crearItemDrawer(
             context,
             Icons.tab,
             'TabBar',
             () => GoRouter.of(context).push('/tabbar'),
-          ),
+          ),*/
           _crearItemDrawer(context, Icons.info, 'Detalle con mensaje', () {
             String mensaje = "Hola desde el Drawer";
             GoRouter.of(context).go('/detail/$mensaje');
@@ -57,6 +57,13 @@ class GlobalDrawer extends StatelessWidget {
             'Tarea Pesada',
             () => GoRouter.of(context).push('/tarea_pesada'),
           ),
+          _crearItemDrawer(
+            context,
+            Icons.list,
+            'Listado',
+            () => GoRouter.of(context).push('/listado'),
+          ),
+          // Agregamos el item para el listado
         ],
       ),
     );

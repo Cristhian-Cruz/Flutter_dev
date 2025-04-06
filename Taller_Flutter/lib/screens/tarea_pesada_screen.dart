@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:go_router/go_router.dart';
 import 'dart:isolate';
 import 'dart:async';
 
@@ -81,7 +81,7 @@ class _TareaPesadaScreenState extends State<TareaPesadaScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tarea Pesada'),
-        leading:
+        /*leading:
             Navigator.of(context).canPop()
                 ? IconButton(
                   icon: Icon(Icons.arrow_back),
@@ -89,7 +89,7 @@ class _TareaPesadaScreenState extends State<TareaPesadaScreen> {
                     context.pop(); // Regresa a la pantalla anterior
                   },
                 )
-                : null,
+                : null,*/
       ),
       drawer: const GlobalDrawer(),
       body: Center(

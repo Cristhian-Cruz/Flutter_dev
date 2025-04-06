@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'router.dart';
+//import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -39,11 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<String> _routes = [
     '/',
     '/gridview',
-    '/tabbar',
+    //'/tabbar',
     '/detail/Hola%20desde%20TabBar',
     '/listview',
     '/contador',
     '/tarea_pesada',
+    '/listado',
+    // Agregamos la ruta para el listado
   ];
 
   void _onTabTapped(int index) {
@@ -67,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return true; // Permite salir si está en la página de inicio
       },
       child: DefaultTabController(
-        length: 6,
+        length: 7,
         child: Scaffold(
           appBar: AppBar(
             title: Text(widget.title),
@@ -93,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Tab(icon: Icon(Icons.list), text: 'Lista'),
                 Tab(icon: Icon(Icons.timer), text: 'Contador'),
                 Tab(icon: Icon(Icons.work), text: 'Tarea Pesada'),
+                Tab(icon: Icon(Icons.list), text: 'Listado'),
+                // Agregamos la pestaña para el listado
               ],
             ),
           ),
@@ -113,6 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 _crearItemDrawer(Icons.list, 'Lista de nombres', 3),
                 _crearItemDrawer(Icons.timer, 'Contador', 4),
                 _crearItemDrawer(Icons.work, 'Tarea Pesada', 5),
+                _crearItemDrawer(Icons.list, 'Listado', 6),
+                // Agregamos el item para el listado
               ],
             ),
           ),
