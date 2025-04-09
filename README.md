@@ -8,6 +8,10 @@ Este proyecto es una aplicación en Flutter que implementa navegación con `go_r
 - **TabBar**: Se utilizaron pestañas para cambiar entre diferentes secciones.
 - **Drawer**: Menú lateral disponible en las pantallas principales.
 - **Evidencia del ciclo de vida**: Se añadieron `print()` en los métodos clave del ciclo de vida de `StatefulWidget` (`initState()`, `didChangeDependencies()`, `build()`, `setState()`, `dispose()`).
+- **Consumo de API Pública**: Se implementó una pantalla que consume la API de Rick and Morty mostrando un listado de personajes con imagen y nombre.
+- **Detalle de personaje**: Al seleccionar un personaje se muestra una nueva pantalla con sus detalles.
+- **Manejo de errores y estados**: Se manejan errores de conexión con mensajes amigables y se valida el estado de carga, éxito o error.
+- **CRUD local**: Se implementó una pantalla adicional para la gestión de nombres, permitiendo agregar, editar y eliminar elementos en una lista controlada por estado.
 
 ## Requisitos
 Antes de clonar y ejecutar el proyecto, asegúrete de tener instalado lo siguiente:
@@ -49,17 +53,21 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina:
 ## Estructura del Proyecto
 ```
 /lib
-│── main.dart           # Punto de entrada de la aplicación
-│── router.dart         # Configuración de rutas con go_router
+│── main.dart               # Punto de entrada de la aplicación
+│── router.dart             # Configuración de rutas con go_router
 │── screens/
-│   ├── home_page.dart  # Pantalla principal con Drawer y botones de navegación
-│   ├── grid_view.dart  # Pantalla con una lista de elementos en cuadrícula
-│   ├── tab_bar.dart    # Pantalla con TabBar para cambiar entre secciones
-│   ├── detail_page.dart# Pantalla que recibe y muestra un mensaje como parámetro
+│   ├── home_page.dart      # Pantalla principal con Drawer y botones
+│   ├── grid_view.dart      # Lista de elementos en cuadrícula
+│   ├── tab_bar.dart        # Pantalla con pestañas
+│   ├── detail_page.dart    # Detalle de navegación por parámetro
+│   ├── listado_screen.dart # Consumo de API Rick and Morty
+│   ├── detalle_screen.dart # Pantalla de detalle del personaje
+│   ├── listview_crud.dart  # Pantalla CRUD de nombres
 │── widgets/
-│   └── custom_drawer.dart # Widget reutilizable para el Drawer
+│   └── custom_drawer.dart  # Widget del Drawer
 │── models/
-│   └── item_model.dart # Modelo de datos para los elementos del GridView
+│   └── item_model.dart     # Modelo de datos para el GridView
+
 ```
 
 ## Posibles Errores y Soluciones
