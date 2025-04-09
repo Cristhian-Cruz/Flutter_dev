@@ -50,7 +50,7 @@ class _ListadoScreenState extends State<ListadoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Listado')),
+      appBar: AppBar(title: const Text('Listado Rick and Morty')),
       drawer: GlobalDrawer(),
       body:
           isLoading

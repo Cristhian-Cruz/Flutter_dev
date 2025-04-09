@@ -93,10 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 Tab(icon: Icon(Icons.home), text: 'Inicio'),
                 Tab(icon: Icon(Icons.grid_view), text: 'GridView'),
                 Tab(icon: Icon(Icons.info), text: 'Detalle'),
-                Tab(icon: Icon(Icons.list), text: 'Lista'),
+                Tab(icon: Icon(Icons.person_2), text: 'Lista estudiantes'),
                 Tab(icon: Icon(Icons.timer), text: 'Contador'),
                 Tab(icon: Icon(Icons.work), text: 'Tarea Pesada'),
-                Tab(icon: Icon(Icons.list), text: 'Listado'),
+                Tab(
+                  icon: Icon(Icons.person_2_outlined),
+                  text: 'Listado Rick and Morty',
+                ),
                 // Agregamos la pestaña para el listado
               ],
             ),
@@ -115,10 +118,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 _crearItemDrawer(Icons.home, 'Inicio', 0),
                 _crearItemDrawer(Icons.grid_view, 'GridView', 1),
                 _crearItemDrawer(Icons.info, 'Detalle con mensaje', 2),
-                _crearItemDrawer(Icons.list, 'Lista de nombres', 3),
+                _crearItemDrawer(Icons.person_2, 'Lista Estudiantes', 3),
                 _crearItemDrawer(Icons.timer, 'Contador', 4),
                 _crearItemDrawer(Icons.work, 'Tarea Pesada', 5),
-                _crearItemDrawer(Icons.list, 'Listado', 6),
+                _crearItemDrawer(
+                  Icons.person_2_outlined,
+                  'Listado Rick and Morty',
+                  6,
+                ),
                 // Agregamos el item para el listado
               ],
             ),

@@ -60,13 +60,17 @@ class _TareaPesadaScreenState extends State<TareaPesadaScreen> {
     });
   }
 
+  /// Función que se ejecuta en el isolate
+  /// Recibe el SendPort para enviar mensajes de vuelta al hilo principal
   static void _ejecutarEnIsolate(SendPort sendPort) {
     final port = ReceivePort();
-    sendPort.send(port.sendPort);
+    sendPort.send(port.sendPort); // Enviamos el SendPort al hilo principal
+    print('Isolate creado y esperando mensajes...');
     print('Isolate está escuchando...');
     port.listen((message) {
       print('Isolate recibió mensaje: $message');
-      final send = message[0] as SendPort;
+      final send = message[0] as SendPort; // SendPort para enviar el resultado
+      // Obtenemos los parámetros de la tarea
       final start = message[1] as int;
       final end = message[2] as int;
 
